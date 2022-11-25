@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="corporate">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CollectionCloset</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <div class="hero min-h-screen bg-base-200"
+    style="background-image: url(https://images.unsplash.com/photo-1576995853123-5a10305d93c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);">
+    <main class="container">
+      <div class="row justify-content-center">
+        <section class="col-6 mt-5">
+          <div class="text-3xl font-bold" style=" display: block; margin: auto; margin-bottom: 5%; text-align: center;">
+            Add your info below to create an account and enjoy all that CollectionCloset has to offer.</div>
+          <% if (locals.messages.errors) { %>
+            <% messages.errors.forEach( el=> { %>
+              <div class="alert alert-danger">
+                <%= el.msg %>
+              </div>
+              <% }) %>
+                <% } %>
+                  <% if (locals.messages.info) { %>
+                    <% messages.info.forEach( el=> { %>
+                      <div class="alert alert-info">
+                        <%= el.msg %>
+                      </div>
+                      <% }) %>
+                        <% } %>
+                          <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100" style="margin: auto">
+                            <div class="card-body">
+                              <div class="form-control">
+                                <form action="/signup" enctype="multipart/form-data" method="POST">
+                                  <div class="mb-3">
+                                    <label for="userName" class="form-label">User Name</label>
+                                    <input type="text" class="form-control" id="userName" name="userName">
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1"
+                                      aria-describedby="emailHelp" name="email">
+                                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
+                                    </div>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password">
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="imgUpload" class="form-label">Profile Pic</label>
+                                    <label class="input-group">
+                                      <input type="file" class="form-control" id="profileImageUpload" name="file">
+                                    </label>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                    <input type="password" class="form-control" id="confirmPassword"
+                                      name="confirmPassword">
+                                  </div>
+                                  <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+        </section>
+      </div>
+  </div>
+  </div>
+  </main>
+
+  </div>
+  </div>
+</body>
+
+</html>

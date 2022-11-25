@@ -1,0 +1,65 @@
+<%- include('partials/header') -%>
+  <div class="container">
+
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-6">
+      <h2>Edit your collection:</h2>
+      <div class="mt-5">
+
+        <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title" value=<%=post.title %>>
+          </div>
+          <div class="mb-3">
+            <label for="desc" class="form-label">Description</label>
+            <input type="text" class="form-control" id="desc" name="desc" value=<%=post.desc %>>
+          </div>
+          <div class="mb-3">
+            <label for="type" class="form-label">Type</label>
+            <input type="text" class="form-control" id="type" name="type" value=<%=post.type %>>
+          </div>
+          <div class="mb-3">
+            <label for="year" class="form-label">Year</label>
+            <input type="text" class="form-control" id="year" name="year" value=<%=post.year %>>
+          </div>
+          <div class="mb-3">
+            <label for="season" class="form-label">Season</label>
+            <input type="text" class="form-control" id="season" name="season" value=<%=post.season %>>
+          </div>
+          <div class="mb-3">
+            <label for="title" class="form-label">Price</label>
+            <input type="text" class="form-control" id="price" name="price" value=<%=post.price %>>
+          </div>
+          <div class="mb-3">
+            <label for="title" class="form-label">Purchase Date</label>
+            <input type="text" class="form-control" id="purchasedAt" name="purchasedAt" value=<%=post.purchasedAt %>>
+          </div>
+          <div class="mb-3">
+            <label for="title" class="form-label">Notes</label>
+            <input type="text" class="form-control" id="notes" name="notes" value=<%=post.notes %>>
+          </div>
+
+
+          <div class="mb-3">
+            <label for="imgUpload" class="form-label">Image</label>
+            <input type="file" class="form-control" id="imageUpload" name="file">
+          </div>
+
+
+
+          <form action="/post/updatePost/<%= post.id %>?_method=PUT" method="PUT" class="col-3">
+
+            <button class="btn btn-primary fa" type="submit">UPDATE</button>
+          </form>
+
+
+      </div>
+    </div>
+
+  </div>
+  </div>
+  </div>
+  <%- include('partials/footer') -%>

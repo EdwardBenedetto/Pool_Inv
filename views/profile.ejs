@@ -1,0 +1,102 @@
+<%- include('partials/header') -%>
+
+  <div class="row" style="display: flex; flex-direction: column;">
+
+
+    <div class="col-12" style="margin-top: 20px;">
+
+      <div class="profileCard card-body shadow-xl">
+        <div class = "formattingDiv">
+        <div class="profileImage">
+          <img src="<%= user.profileImage %>" style = "border-radius: 50%";/>
+        </div>
+        <div class="profileText">
+          <h1 class="text-xl"><%= user.userName %></h1>
+          <p>Join date: <%= user.createdAt.toString().slice(4,16) %></p>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div style="display: flex; margin-left: 20px">
+      <details>
+        <summary>ADD PRODUCT</summary>
+        <div class="content">
+          <div>
+            <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+              <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" name="title">
+              </div>
+              <div class="mb-3">
+                <label for="desc" class="form-label">Description</label>
+                <input type="text" class="form-control" id="desc" name="desc">
+              </div>
+              <div class="mb-3">
+                <label for="title" class="form-label">Purchase Price</label>
+                <input type="text" class="form-control" id="price" name="price">
+              </div>
+              <div class="mb-3">
+                <label for="title" class="form-label">Asking price</label>
+                <input type="text" class="form-control" id="price" name="askPrice">
+              </div>
+              <div class="mb-3">
+                <label for="title" class="form-label">Purchase Date</label>
+                <input type="text" class="form-control" id="purchasedAt" name="purchasedAt">
+              </div>
+
+              <div class="mb-3">
+                <label for="title" class="form-label">Notes</label>
+                <input type="text" class="form-control" id="notes" name="notes">
+              </div>
+              <div class="mb-3">
+                <label for="imgUpload" class="form-label">Image</label>
+                <input type="file" class="form-control" id="imageUpload" name="file">
+              </div>
+              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+            </form>
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary>SEARCH COLLECTION</summary>
+        <div class="content">
+          <form action="/q" method="POST" class="search-form" id="searchForm">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" name="searchInput" value="<%= search %>" placeholder="Search">
+              <div class="input-group-append"><button class="btn btn-primary"><i class="fas fa-search"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </details>
+    </div>
+
+    <div class="col-12" style=>
+
+      <ul class="row list-unstyled">
+        <% for(var i=0; i<posts.length; i++) {%>
+          <li class="card card-body bg-base-100 shadow-xl" style="width: 20%; margin: 20px;">
+            <a href="/post/<%= posts[i]._id%>">
+              <h5 class="card-title">
+                <%= posts[i].title%>
+              </h5>
+              <p>   <%= posts[i].desc%></p>
+              <div class='img-container'><img class="img-fluid" src="<%= posts[i].image%>"></div>
+            </a>
+          </li>
+          <% } %>
+
+            <% for(var i=0; i<(4-posts.length%4); i++) {%>
+              <li class="card card-body  bg-base-40 shadow-xl" style="width: 20%; margin: 20px;; visibility: hidden">
+              </li>
+              <% } %>
+      </ul>
+
+    </div>
+
+  </div>
+
+
+  <%- include('partials/footer') -%>

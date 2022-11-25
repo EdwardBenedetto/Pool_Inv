@@ -1,0 +1,107 @@
+.navbar {
+  color: white;
+}
+
+.navbar a:hover {
+  color: rgb(9, 71, 187);
+}
+
+.img-fluid {
+  border-radius: 10px;
+  width: 75%;
+  margin: auto;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+body {
+  font-family: 'Helvetica';
+}
+
+/* div {
+    border: 1px solid red;
+  }  */
+
+.profileCard {
+  width: 300px;
+  height: 100px;
+  margin-left: 20px;
+}
+
+.formattingDiv {
+  display: flex;
+  flex-direction: row;
+}
+
+.profileImage {
+  width: 20%;
+  border-radius: 50%;
+  display: block;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.profileText {
+  
+}
+
+.img-container {
+  width: 100%;
+}
+
+* {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+details {
+  display: block;
+  width: 215px;
+  margin: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+details:first-child {
+  margin-left: 0;
+}
+
+details>summary {
+  list-style: none;
+}
+
+summary {
+  border: 4px solid transparent;
+  outline: none;
+  padding: 1rem;
+  display: block;
+  background: rgb(2, 2, 37);
+  color: white;
+  position: relative;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+details[open] summary,
+summary:hover {
+  color: #CCC;
+  background: rgb(9, 71, 187);
+}
+
+.content {
+  padding: 10px;
+  border: 2px solid #888;
+  border-top: none;
+}
+
+footer {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.btn-buy {
+  color: white;
+}

@@ -1,0 +1,50 @@
+<%- include('partials/header') -%>
+
+  <div class="space-evenly ">
+    <ul class="row ">
+      <h1 class="mb-5 text-5xl font-bold" style="margin-top: 40px; margin-left: 30px; margin-right: 30px;">All Closet
+        Items for Sale</h1>
+
+      <% for(var i=0; i<posts.length; i++) {%>
+        <% if (posts[i].askPrice) { %>
+          <li class="card card-body w-96 bg-base-100 shadow-xl" style="margin: 20px">
+            <a href="/post/<%= posts[i]._id%>">
+              <div class="card-actions justify-end">
+
+                <form action='/charge' method="POST">
+                  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="pk_test_51M3L8iJtnAvUa5oLPwUuoVURCd6YMvywcID4rgEdWn2NX3CsvHoomPn1IIs05nHvCZlPwXGr3DQyC5f64701Ii0300JWnTSArj"
+                     data-locale="auto" ></script>
+                  <script>
+
+                      //hide default script
+                     var els = document.getElementsByClassName('stripe-button-el')
+                    for (var i in els) {
+                      els[i].style.display = "none"
+                    }
+                  </script>
+                  <button type="submit" class="btn btn-primary">Buy: $<%= posts[i].askPrice%></button>
+              </div>
+
+              <h2 class="card-title">
+                <%= posts[i].title%>
+              </h2>
+              <p>Seller: <%= posts[i].userName%><%= posts[i].profileImage%>
+              </p>
+              <div><img class="img-fluid" src="<%= posts[i].image%>"></div>
+
+            </a>
+          </li>
+          <% } %>
+            <% } %>
+
+              <% for(var i=0; i<=4-(posts.length%4); i++) {%>
+                <li class="card card-body w-96 bg-base-100 shadow-xl" style="visibility: hidden">
+                </li>
+                <% } %>
+    </ul>
+
+  </div>
+  </div>
+
+  <%- include('partials/footer') -%>
